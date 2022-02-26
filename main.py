@@ -23,10 +23,8 @@ def sorting(array):
 def check_index(array, element, left, right):
     if left > right: 
         return False 
-    middle = (right+left) // 2
-    if middle == 0:
-        return middle
-    elif array[middle] == element:
+    middle = (right+left) // 2 
+    if array[middle-1] < element and array[middle] >= element:
         return middle - 1
     elif element < array[middle]:
         return check_index(array, element, left, middle-1)
