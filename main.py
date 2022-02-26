@@ -23,8 +23,10 @@ def sorting(array):
 def check_index(array, element, left, right):
     if left > right: 
         return False 
-    middle = (right+left) // 2 
-    if array[middle] == element:
+    middle = (right+left) // 2
+    if middle == 0:
+        return middle
+    elif array[middle] == element:
         return middle - 1
     elif element < array[middle]:
         return check_index(array, element, left, middle-1)
@@ -43,18 +45,22 @@ while True:
     except ValueError:
         print('Wrong input! Missing the spaces or enter integers!')
 
+sorting_lst = sorting(lst)
 
 # Checking num = integer
 while True:
     try:
         num = input('Enter integer: ')
         num = int(num)
+        if num > max(sorting_lst) or num <= min(sorting_lst):
+            raise ValueError('Wrong input!')
         break
     except ValueError:
-        print('Wrong input! Enter the integer')
+        print('Wrong input! Enter the integer or out of scope!')
 
-# Output results
-sorting_lst = sorting(lst)
+# Output sorting list
 print('Sorting list: ', sorting_lst)
+
+# Output index
 index = check_index(lst, num, 0, len(sorting_lst))
 print('Index: ', index)
