@@ -62,5 +62,5 @@ while True:
 print('Sorting list: ', sorting_lst)
 
 # Output index
-index = check_index(lst, num, 0, len(sorting_lst))
+index = check_index(lst, num, 0, len(sorting_lst)-1)
 print('Index: ', index)
