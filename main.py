@@ -50,7 +50,7 @@ while True:
     try:
         num = input('Enter integer: ')
         num = int(num)
-        if num > max(sorting_lst) or num <= min(sorting_lst):
+        if num >= max(sorting_lst) or num <= min(sorting_lst):
             raise ValueError('Wrong input!')
         break
     except ValueError:
